@@ -51,50 +51,6 @@ class Wordpress_Webmail_Access_Public {
         $this->version = $version;
     }
 
-    /**
-     * Register the stylesheets for the public-facing side of the site.
-     *
-     * @since    1.0.0
-     */
-    public function enqueue_styles() {
-
-        /**
-         * This function is provided for demonstration purposes only.
-         *
-         * An instance of this class should be passed to the run() function
-         * defined in Wordpress_Webmail_Access_Loader as all of the hooks are defined
-         * in that particular class.
-         *
-         * The Wordpress_Webmail_Access_Loader will then create the relationship
-         * between the defined hooks and the functions defined in this
-         * class.
-         */
-
-        wp_enqueue_style($this->wordpress_webmail_access, plugin_dir_url(__FILE__) . 'css/wordpress-webmail-access-public.css', [], $this->version, 'all');
-    }
-
-    /**
-     * Register the JavaScript for the public-facing side of the site.
-     *
-     * @since    1.0.0
-     */
-    public function enqueue_scripts() {
-
-        /**
-         * This function is provided for demonstration purposes only.
-         *
-         * An instance of this class should be passed to the run() function
-         * defined in Wordpress_Webmail_Access_Loader as all of the hooks are defined
-         * in that particular class.
-         *
-         * The Wordpress_Webmail_Access_Loader will then create the relationship
-         * between the defined hooks and the functions defined in this
-         * class.
-         */
-
-        wp_enqueue_script($this->wordpress_webmail_access, plugin_dir_url(__FILE__) . 'js/wordpress-webmail-access-public.js', ['jquery'], $this->version, false);
-    }
-
     public function shortcode_webmail_form() {
         $buildDir = __DIR__ . '/build/';
 
