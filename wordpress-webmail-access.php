@@ -15,14 +15,12 @@
  * @wordpress-plugin
  * Plugin Name:       Wordpress Webmail Access
  * Plugin URI:        https://github.com/LinkNacional/wordpress-webmail-access
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Forneçe um formulário para acessar webmail via endereço de e-mail.
  * Version:           1.0.0
  * Author:            Link Nacional
  * Author URI:        https://www.linknacional.com.br/
  * License:           GPL-2.0+
  * License URI:
- * Text Domain:       wordpress-webmail-access
- * Domain Path:       /languages
  */
 
 // If this file is called directly, abort.
