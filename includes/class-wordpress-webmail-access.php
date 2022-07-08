@@ -164,7 +164,7 @@ class Wordpress_Webmail_Access {
 
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
-        $this->loader->add_shortcode('my_shortcode_tag', $plugin_public, 'my_shortcode');
+        $this->loader->add_shortcode('webmail_form', $plugin_public, 'shortcode_webmail_form');
     }
 
     /**
