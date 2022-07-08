@@ -3,16 +3,14 @@
     <q-form @submit.prevent="onSubmit">
       <q-input
         input-class="webmail-form-input"
-        filled
         v-model="email"
-        label="Digite seu email do Webmail"
-        hint="usuario@dominio.com"
+        label="Digite o e-mail para acessar"
         type="email"
         lazy-rules=""
         :rules="[emailValidation]"
       />
 
-      <div class="q-mt-xl">
+      <div class="q-mt-md">
         <q-btn
           label="Acessar Webmail"
           type="submit"
