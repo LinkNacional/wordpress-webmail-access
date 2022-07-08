@@ -27,8 +27,8 @@ jobs:
         working-directory: ./quasar
         run: npm run build
 
-      - name: Move quasar build to public
-        run: "cd quasar/dist/spa && mv -t ./public/build"
+      # - name: Move quasar build to public
+      # run: "cd quasar/dist/spa && mv -t ./public/build"
 
       - name: Make plugin root directory
         run: "mkdir $PLUGIN_NAME && mv -t ./$PLUGIN_NAME ./includes ./public *.php && ls -lah"
