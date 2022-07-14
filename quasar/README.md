@@ -1,4 +1,4 @@
-# Quasar App (quasar-project)
+# Wordpress Webmail Access (wordpress-webmail-access)
 
 A Quasar Project
 
