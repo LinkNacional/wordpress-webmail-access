@@ -1,15 +1,13 @@
 <template>
-  <q-layout>
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-  </q-layout>
+  <WebmailForm />
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
+import WebmailForm from "components/WebmailForm.vue";
 
 export default defineComponent({
-  name: 'MainLayout',
-})
+  name: "MainLayout",
+  components: { WebmailForm },
+});
 </script>
