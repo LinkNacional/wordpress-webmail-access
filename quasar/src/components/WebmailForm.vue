@@ -2,8 +2,8 @@
   <div style="max-width: 400px">
     <q-form @submit.prevent="onSubmit">
       <q-input
-        input-class="webmail-form-input"
         v-model="email"
+        input-class="webmail-form-input"
         label="Digite o e-mail para acessar"
         type="email"
         lazy-rules=""
@@ -25,28 +25,28 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import { emailValidation } from "../utils/validations";
+import { defineComponent } from 'vue'
+import { emailValidation } from '../utils/validations'
 //
 export default defineComponent({
-  name: "WebmailForm",
+  name: 'WebmailForm',
 
-  data() {
+  data () {
     return {
-      email: null,
-    };
+      email: null
+    }
   },
 
   methods: {
-    onSubmit() {
-      const splittedEmail = this.email.split("@");
-      const webmailDomain = splittedEmail[1];
+    onSubmit () {
+      const splittedEmail = this.email.split('@')
+      const webmailDomain = splittedEmail[1]
 
-      const userWebmailUrl = `https://webmail.${webmailDomain}`;
+      const userWebmailUrl = `https://webmail.${webmailDomain}`
 
-      window.open(userWebmailUrl, "_blank").focus();
+      window.open(userWebmailUrl, '_blank').focus()
     },
-    emailValidation,
-  },
-});
+    emailValidation
+  }
+})
 </script>
