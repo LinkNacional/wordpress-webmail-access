@@ -1,6 +1,12 @@
 <template>
-  <div style="max-width: 400px">
-    <q-form @submit.prevent="onSubmit">
+  <div
+    style="max-width: 400px"
+    class="q-ma-xl"
+  >
+    <q-form
+      class="flex column"
+      @submit.prevent="onSubmit"
+    >
       <q-input
         v-model="email"
         input-class="webmail-form-input"
@@ -12,12 +18,14 @@
 
       <div class="q-mt-md">
         <q-btn
-          label="Acessar Webmail"
+          label="Acessar o Webmail"
           type="submit"
           text-color="white"
-          style="background: #d3d800; width: 100%"
-          size="lg"
-          no-caps
+          style="background: #d3d800;"
+          class="wordpress-webmail-access-btn"
+          padding="12px 26px"
+          rounded
+          flat
         />
       </div>
     </q-form>
