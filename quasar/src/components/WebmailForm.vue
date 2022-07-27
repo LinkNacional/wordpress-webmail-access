@@ -1,8 +1,5 @@
 <template>
-  <div
-    style="max-width: 400px"
-    class="q-ma-xl"
-  >
+  <div style="max-width: 400px">
     <q-form
       class="flex column"
       @submit.prevent="onSubmit"
