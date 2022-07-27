@@ -52,37 +52,65 @@ class Wordpress_Webmail_Access_Public {
     }
 
     public function shortcode_webmail_form() {
-        $buildDir = __DIR__ . '/build/';
+        $buildDir = __DIR__ . '/build';
 
         $cssFiles = scandir("$buildDir/css");
         $jsFiles = scandir("$buildDir/js");
-        $fontFiles = scandir("$buildDir/fonts");
-        $buildFiles = array_merge($cssFiles, $jsFiles, $fontFiles);
+        $buildFiles = array_merge($cssFiles, $jsFiles);
 
         $files = array_filter($buildFiles, function ($file) {
             return $file !== '.' && $file !== '..';
         });
 
-        array_map(function ($file) {
+        $pathsJs = '';
+        $pathsCss = '';
+
+        foreach ($files as $file) {
             $posDotBeforeExt = strripos($file, '.');
             $fileExt = substr($file, $posDotBeforeExt + 1);
 
             switch ($fileExt) {
                 case 'js':
-                    wp_enqueue_script(uniqid(), plugin_dir_url(__FILE__) . "build/js/$file");
+                    $path = plugin_dir_url(__FILE__) . "build/js/$file";
+                    $pathsJs .= "<script src='$path'></script>";
 
                     break;
                 case 'css':
-                    wp_enqueue_style(uniqid(), plugin_dir_url(__FILE__) . "build/css/$file");
+                    $path = plugin_dir_url(__FILE__) . "build/css/$file";
+                    $pathsCss .= "<link rel='stylesheet' href='$path'>";
 
-                    break;
-                case 'woff':
-                case 'woff2':
-                    # code...
                     break;
             }
-        }, $files);
+        }
 
-        return '<div id="q-app"></div>';
+        $iframeFilePath = plugin_dir_path(__FILE__) . 'build/iframe.html';
+        $iframeFilePathUrl = plugin_dir_url(__FILE__) . 'build/iframe.html';
+
+        if (!file_exists($iframeFilePath)) {
+            $iframeCode = <<<EOT
+        <!DOCTYPE html>
+        <html>
+            <head>
+                $pathsCss
+            </head>
+            <body>
+                <div id=q-app></div>
+                $pathsJs
+            </body>
+        </html>
+        EOT;
+
+            file_put_contents($iframeFilePath, $iframeCode);
+        }
+
+        return <<<EOT
+        <iframe 
+        src="$iframeFilePathUrl"
+        frameborder="0"
+        loading="eager"
+        allowfullscreen="false"
+        style="width: 400px; height: 141.72px;"
+        ></iframe>
+        EOT;
     }
 }

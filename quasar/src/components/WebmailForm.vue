@@ -1,8 +1,5 @@
 <template>
-  <div
-    style="max-width: 400px"
-    class="q-ma-xl"
-  >
+  <div style="max-width: 400px">
     <q-form
       class="flex column"
       @submit.prevent="onSubmit"
@@ -53,7 +50,7 @@ export default defineComponent({
 
       const userWebmailUrl = `https://webmail.${webmailDomain}`
 
-      window.open(userWebmailUrl, '_blank').focus()
+      window.parent.open(userWebmailUrl, '_blank').focus()
     },
     emailValidation
   }
