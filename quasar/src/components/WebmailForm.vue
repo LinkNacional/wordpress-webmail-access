@@ -53,7 +53,7 @@ export default defineComponent({
 
       const userWebmailUrl = `https://webmail.${webmailDomain}`
 
-      window.open(userWebmailUrl, '_blank').focus()
+      window.parent.open(userWebmailUrl, '_blank').focus()
     },
     emailValidation
   }
